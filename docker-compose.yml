@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  postgres:
+    container_name: "Postgres"
+    image: postgres:13-alpine
+    environment:
+      LANG: "pt_BR.utf8"
+      POSTGRES_USER: "1234"
+      POSTGRES_PASSWORD: "1234"
+    ports:
+      - "5433:5432"
+    networks:
+      - postgres
+ 
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  cache:
+    driver: local
